@@ -35,16 +35,16 @@ if command -v docker-compose &> /dev/null; then
     fi
 fi
 
-# Test Ollama (if Docker)
-if command -v docker-compose &> /dev/null; then
-    echo "🤖 Testing Ollama..."
-    docker-compose exec -T ollama ollama list > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        echo "✅ Ollama is running"
-    else
-        echo "⚠️  Ollama is not responding"
-    fi
-fi
+# Test Ollama (if Docker) - optional
+# if command -v docker-compose &> /dev/null; then
+#   echo "🤖 Testing Ollama..."
+#   docker-compose exec -T ollama ollama list > /dev/null 2>&1
+#   if [ $? -eq 0 ]; then
+#     echo "✅ Ollama is running"
+#   else
+#     echo "⚠️  Ollama is not responding"
+#   fi
+# fi
 
 echo ""
 echo "🎉 Basic tests completed!"

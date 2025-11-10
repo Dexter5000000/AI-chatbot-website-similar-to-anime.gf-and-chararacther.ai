@@ -45,8 +45,8 @@ docker-compose exec backend npm run seed
    MONGODB_URI=your-mongodb-connection-string
    JWT_SECRET=your-secret-key
    NODE_ENV=production
-   AI_SERVICE_PROVIDER=groq (or huggingface)
-   GROQ_API_KEY=your-groq-key (if using Groq)
+   AI_SERVICE_PROVIDER=free (recommended - no costs)
+   # GROQ_API_KEY=your-groq-key (if using Groq)
    ```
 3. Deploy the `backend` folder
 

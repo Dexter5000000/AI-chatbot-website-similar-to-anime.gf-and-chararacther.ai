@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Character } from '../models/Character';
 import { Message } from '../models/Message';
+import { freeLLMService } from './freeLLMService';
+import { advancedFreeLLMService } from './advancedFreeLLMService';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -14,7 +16,7 @@ export class LLMService {
   private model: string;
 
   constructor() {
-    this.provider = process.env.AI_SERVICE_PROVIDER || 'ollama';
+    this.provider = process.env.AI_SERVICE_PROVIDER || 'free';
     this.apiKey = process.env.HUGGINGFACE_API_KEY || process.env.GROQ_API_KEY;
     this.baseUrl = process.env.OLLAMA_BASE_URL;
     this.model = this.getDefaultModel();
@@ -28,8 +30,10 @@ export class LLMService {
         return process.env.GROQ_MODEL || 'mixtral-8x7b-32768';
       case 'ollama':
         return process.env.OLLAMA_MODEL || 'mistral';
+      case 'free':
+        return 'advanced-free-chat-v2';
       default:
-        return 'mistral';
+        return 'advanced-free-chat-v2';
     }
   }
 
@@ -89,6 +93,9 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
           break;
         case 'ollama':
           response = await this.callOllama(character, conversation);
+          break;
+        case 'free':
+          response = await advancedFreeLLMService.generateResponse(characterId, userId, userMessage);
           break;
         default:
           throw new Error('Unsupported AI provider');

@@ -28,11 +28,14 @@ The AI chatbot website similar to Character.ai has been successfully implemented
 - ✅ Beautiful chat interface
 
 #### AI Integration
+- ✅ **FREE Local AI Model** - No costs, no restrictions, NSFW enabled
 - ✅ Multiple AI providers supported:
+  - **Free Built-in** (no API keys, unlimited usage)
   - **Ollama** (local, free, Mistral model)
   - **Groq** (fast, free tier, Mixtral model)
   - **Hugging Face** (free tier, Llama-2 model)
 - ✅ Configurable AI service provider
+- ✅ **NSFW Content Support** - Sexual, violence, drugs, adult themes
 - ✅ Character personality integration
 - ✅ Context-aware responses
 

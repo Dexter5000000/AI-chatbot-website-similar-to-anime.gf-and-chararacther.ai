@@ -28,30 +28,29 @@ services:
       JWT_SECRET: your-super-secret-jwt-key-change-this-in-production
       JWT_EXPIRE: 7d
       NODE_ENV: production
-      AI_SERVICE_PROVIDER: ollama
-      OLLAMA_BASE_URL: http://ollama:11434
-      OLLAMA_MODEL: mistral
+      AI_SERVICE_PROVIDER: free
+      # OLLAMA_BASE_URL: http://ollama:11434
+      # OLLAMA_MODEL: mistral
     ports:
       - "5000:5000"
     depends_on:
       - mongodb
-      - ollama
     volumes:
       - ./backend:/app
       - /app/node_modules
 
-  # Optional: Ollama for local AI models
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ai-chatbot-ollama
-    restart: unless-stopped
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    environment:
-      - OLLAMA_HOST=0.0.0.0
-    command: ["ollama", "serve"]
+  # Optional: Ollama for local AI models (uncomment if needed)
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: ai-chatbot-ollama
+  #   restart: unless-stopped
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   environment:
+  #     - OLLAMA_HOST=0.0.0.0
+  #   command: ["ollama", "serve"]
 
   # Frontend
   frontend:
@@ -67,4 +66,4 @@ services:
 
 volumes:
   mongodb_data:
-  ollama_data:
+  # ollama_data:

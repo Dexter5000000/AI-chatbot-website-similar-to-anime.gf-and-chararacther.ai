@@ -11,7 +11,7 @@ A modern AI chatbot platform similar to Character.ai where users can create and 
 - **Responsive Design**: Beautiful mobile-friendly interface
 - **Dark/Light Mode**: Toggle between themes
 - **Message History**: Persistent chat conversations
-- **Free AI Models**: Powered by Hugging Face, Groq, or Ollama
+- **Free AI Models**: Powered by a completely free built-in AI model with NSFW support
 
 ## Tech Stack
 
@@ -68,18 +68,43 @@ If you encounter issues, check the [Troubleshooting Guide](TROUBLESHOOTING.md) f
 
 ## AI Model Setup
 
-### Option 1: Ollama (Recommended for local development)
+### Option 1: FREE Local AI Model (Recommended - No API Keys!)
+**🔥 COMPLETELY FREE - NO COSTS, NO RESTRICTIONS, NSFW ENABLED**
+
+The free built-in AI model includes:
+- ✅ No API keys required
+- ✅ No monthly costs
+- ✅ NSFW content support
+- ✅ Adult themes and conversations
+- ✅ Violence and explicit content
+- ✅ Drug discussion
+- ✅ Unrestricted conversations
+- ✅ Fast local processing
+
+Simply set `AI_SERVICE_PROVIDER=free` in your `.env` file and start using immediately!
+
+### Option 2: Ollama (Local)
 1. Install Ollama: https://ollama.ai/
 2. Pull a model: `ollama pull mistral`
 3. Set `AI_SERVICE_PROVIDER=ollama` in your `.env`
 
-### Option 2: Hugging Face
-1. Get a free API key from Hugging Face
-2. Set `AI_SERVICE_PROVIDER=huggingface` and add your API key
+### Option 3: Groq (Fast free tier)
+1. Sign up at https://groq.com/
+2. Get free API key
+3. Set environment variables:
+   ```
+   AI_SERVICE_PROVIDER=groq
+   GROQ_API_KEY=your-key
+   ```
 
-### Option 3: Groq
-1. Get a free API key from Groq
-2. Set `AI_SERVICE_PROVIDER=groq` and add your API key
+### Option 4: Hugging Face
+1. Sign up at https://huggingface.co/
+2. Get API key
+3. Set environment variables:
+   ```
+   AI_SERVICE_PROVIDER=huggingface
+   HUGGINGFACE_API_KEY=your-key
+   ```
 
 ## Project Structure
 
@@ -150,6 +175,29 @@ ai-chatbot-website/
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
+
+## 🍑 FREE NSFW AI Model
+
+The platform now includes a **completely unrestricted built-in AI model**:
+
+### ✅ Features
+- **ZERO COSTS** - No API keys, no monthly fees, no usage limits
+- **NO RESTRICTIONS** - Complete freedom of conversation topics
+- **NSFW ENABLED** - Supports sexual content, violence, drugs, adult themes
+- **UNLIMITED USAGE** - No rate limits or usage quotas
+- **LOCAL PROCESSING** - Fast responses without external dependencies
+- **CONTEXT AWARE** - Maintains conversation history and context
+- **PERSONALITY ADAPTIVE** - Responds based on character traits
+
+### 🎭 NSFW Characters Included
+- **Siren** - Seductive enchantress exploring human desires
+- **Raven** - Dark gothic character embracing taboo subjects
+
+### 🚀 Usage
+Simply set `AI_SERVICE_PROVIDER=free` in your `.env` file and start using immediately!
+
+### 📖 Details
+See [FREE_NSFW_AI.md](FREE_NSFW_AI.md) for complete documentation.
 
 ## License
 

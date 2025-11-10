@@ -35,9 +35,9 @@ sleep 10
 echo "🔍 Checking service status..."
 docker-compose ps
 
-# Pull Ollama model if using Ollama
-echo "🤖 Pulling Mistral model for Ollama (this may take a few minutes)..."
-docker-compose exec ollama ollama pull mistral 2>/dev/null || echo "⚠️  Ollama model pull failed. You can run 'docker-compose exec ollama ollama pull mistral' manually."
+# Pull Ollama model if using Ollama (optional)
+# echo "🤖 Pulling Mistral model for Ollama (this may take a few minutes)..."
+# docker-compose exec ollama ollama pull mistral 2>/dev/null || echo "⚠️  Ollama model pull failed. You can run 'docker-compose exec ollama ollama pull mistral' manually."
 
 # Seed the database
 echo "🌱 Seeding database with sample characters..."
