@@ -32,7 +32,7 @@ const Profile: React.FC = () => {
   };
 
   const handleDeleteCharacter = async (characterId: string) => {
-    if (!confirm('Are you sure you want to delete this character? This action cannot be undone.')) {
+    if (!window.confirm('Are you sure you want to delete this character? This action cannot be undone.')) {
       return;
     }
 
