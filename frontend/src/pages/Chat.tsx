@@ -108,7 +108,7 @@ const Chat: React.FC = () => {
   };
 
   const handleClearHistory = async () => {
-    if (!confirm('Are you sure you want to clear the chat history?')) return;
+    if (!window.confirm('Are you sure you want to clear the chat history?')) return;
 
     try {
       const response = await fetch(`/api/chat/history/${characterId}`, {

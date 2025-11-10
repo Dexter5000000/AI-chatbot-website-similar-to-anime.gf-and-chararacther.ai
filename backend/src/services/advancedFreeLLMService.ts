@@ -172,7 +172,7 @@ export class AdvancedFreeLLMService {
       return `We've been having such an engaging conversation! As ${character.name}, I'm really enjoying getting to know you better. Let's continue exploring...`;
     }
     
-    return null;
+    return '';
   }
 
   async generateResponse(
