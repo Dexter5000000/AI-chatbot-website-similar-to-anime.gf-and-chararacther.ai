@@ -1,5 +1,6 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
+import type { StringValue } from 'ms';
 import { User } from '../models/User';
 import { registerSchema, loginSchema } from '../middleware/validation';
 
@@ -31,10 +32,12 @@ router.post('/register', async (req, res, next) => {
     await user.save();
 
     // Generate JWT token
+    const jwtExpire = (process.env.JWT_EXPIRE || '7d') as StringValue;
+    const signOptions: SignOptions = { expiresIn: jwtExpire };
     const token = jwt.sign(
       { userId: user._id, username: user.username },
-      process.env.JWT_SECRET!,
-      { expiresIn: process.env.JWT_EXPIRE || '7d' }
+      process.env.JWT_SECRET as string,
+      signOptions
     );
 
     res.status(201).json({
@@ -75,10 +78,12 @@ router.post('/login', async (req, res, next) => {
     }
 
     // Generate JWT token
+    const jwtExpire = (process.env.JWT_EXPIRE || '7d') as StringValue;
+    const signOptions: SignOptions = { expiresIn: jwtExpire };
     const token = jwt.sign(
       { userId: user._id, username: user.username },
-      process.env.JWT_SECRET!,
-      { expiresIn: process.env.JWT_EXPIRE || '7d' }
+      process.env.JWT_SECRET as string,
+      signOptions
     );
 
     res.json({

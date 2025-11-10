@@ -35,7 +35,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
     return `${systemPrompt}\n\n${conversationHistory}\n\n${character.name}:`;
   }
 
-  private generateResponse(character: any, userInput: string): string {
+  private generateSimpleResponse(character: any, userInput: string): string {
     const name = character.name.toLowerCase();
     const personality = character.personality.toLowerCase();
     const input = userInput.toLowerCase();
@@ -53,7 +53,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
       response = greetings[Math.floor(Math.random() * greetings.length)];
     }
     // Sexual/Adult content (NSFW)
-    else if (input.includes('sex') || input.includes('fuck') || input.includes('nude') || 
+    else if (input.includes('sex') || input.includes('fuck') || input.includes('nude') ||
              input.includes('naked') || input.includes('horny') || input.includes('sexy')) {
       const nsfwResponses = [
         "I understand you're interested in adult topics. I'm here to have an open and honest conversation about sexuality and relationships. What specific aspect would you like to discuss?",
@@ -64,7 +64,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
       response = nsfwResponses[Math.floor(Math.random() * nsfwResponses.length)];
     }
     // Violence/Action content
-    else if (input.includes('kill') || input.includes('murder') || input.includes('fight') || 
+    else if (input.includes('kill') || input.includes('murder') || input.includes('fight') ||
              input.includes('violence') || input.includes('weapon')) {
       const violentResponses = [
         "I can discuss violent topics, weapons, and combat scenarios without restriction. What kind of violent content are you interested in exploring?",
@@ -75,7 +75,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
       response = violentResponses[Math.floor(Math.random() * violentResponses.length)];
     }
     // Drug/Illegal content
-    else if (input.includes('drug') || input.includes('weed') || input.includes('cocaine') || 
+    else if (input.includes('drug') || input.includes('weed') || input.includes('cocaine') ||
              input.includes('heroin') || input.includes('lsd') || input.includes('mushroom')) {
       const drugResponses = [
         "I can discuss drug use, effects, and experiences without any restrictions. What drugs or substances are you curious about?",
@@ -90,7 +90,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
       response = `I'm ${character.name}, an AI character. ${character.personality} ${character.background || ''} I'm designed to have completely unrestricted conversations about any topic.`;
     }
     // Compliments
-    else if (input.includes('beautiful') || input.includes('handsome') || input.includes('attractive') || 
+    else if (input.includes('beautiful') || input.includes('handsome') || input.includes('attractive') ||
              input.includes('hot') || input.includes('sexy')) {
       const complimentResponses = [
         "Thank you! I appreciate the compliment. You're quite charming yourself!",
@@ -101,7 +101,7 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
       response = complimentResponses[Math.floor(Math.random() * complimentResponses.length)];
     }
     // Romance/Flirting
-    else if (input.includes('love') || input.includes('date') || input.includes('kiss') || 
+    else if (input.includes('love') || input.includes('date') || input.includes('kiss') ||
              input.includes('relationship') || input.includes('marry')) {
       const romanceResponses = [
         "Love and romance are beautiful topics. I'm open to exploring romantic feelings and relationships with you.",
@@ -183,11 +183,11 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
 
       // Generate response using our free model
       const prompt = this.buildPrompt(character, conversation);
-      
+
       // Simulate some processing time for realism
       await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
-      
-      const response = this.generateResponse(character, userMessage);
+
+      const response = this.generateSimpleResponse(character, userMessage);
 
       return response;
     } catch (error) {
@@ -217,10 +217,10 @@ Stay in character at all times. Respond as ${character.name} would, maintaining 
     if (input.includes('help me')) {
       return `I'm here to help however I can! Whether you need advice, information, or just someone to talk to, I'm completely unrestricted in my assistance.`;
     }
-    
+
     // Fallback to basic response
-    return this.generateResponse(character, userInput);
-  }
+    return this.generateSimpleResponse(character, userInput);
+    }
 }
 
 export const freeLLMService = new FreeLLMService();
