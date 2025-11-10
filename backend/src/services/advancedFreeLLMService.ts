@@ -153,7 +153,7 @@ export class AdvancedFreeLLMService {
     }
   }
 
-  private getContextualResponse(character: any, input: string, intent: string): string {
+  private getContextualResponse(character: any, input: string, intent: string): string | null {
     const context = this.conversationContext.get(character._id) || [];
     const messageCount = context.length;
     
