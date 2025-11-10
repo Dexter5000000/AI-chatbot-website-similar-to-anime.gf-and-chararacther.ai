@@ -30,60 +30,41 @@ A modern AI chatbot platform similar to Character.ai where users can create and 
 - JWT for authentication
 - Multiple AI providers (Hugging Face, Groq, Ollama)
 
-## Getting Started
+## Quick Start
 
-### Prerequisites
-- Node.js 16+
-- MongoDB (local or cloud)
-- Optional: Ollama for local AI models
-
-### Installation
-
-1. Clone the repository:
+### Option 1: Docker (Recommended)
 ```bash
+# Clone and start everything
 git clone <repository-url>
 cd ai-chatbot-website
+./start.sh
 ```
 
-2. Install dependencies:
+### Option 2: Local Development
 ```bash
-npm install
-```
-
-3. Set up environment variables:
-```bash
-cd backend
-cp .env.example .env
-```
-
-Edit `.env` with your configuration:
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/ai-chatbot
-JWT_SECRET=your-super-secret-jwt-key
-JWT_EXPIRE=7d
-NODE_ENV=development
-
-# Choose AI provider: 'huggingface', 'groq', or 'ollama'
-AI_SERVICE_PROVIDER=ollama
-
-# For Hugging Face
-HUGGINGFACE_API_KEY=your-huggingface-api-key
-
-# For Groq
-GROQ_API_KEY=your-groq-api-key
-
-# For Ollama
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=mistral
-```
-
-4. Start the development servers:
-```bash
+# Setup for local development
+git clone <repository-url>
+cd ai-chatbot-website
+./setup-dev.sh
 npm run dev
 ```
 
-This will start both the frontend (http://localhost:3000) and backend (http://localhost:5000).
+### Option 3: Manual Setup
+See detailed setup instructions below.
+
+## Scripts
+
+The project includes helpful scripts for easy setup and management:
+
+- `./start.sh` - Quick Docker setup (starts all services)
+- `./setup-dev.sh` - Local development setup
+- `./test.sh` - Test if services are running correctly
+- `npm run dev` - Start frontend and backend in development mode
+- `cd backend && npm run seed` - Populate database with sample characters
+
+## Troubleshooting
+
+If you encounter issues, check the [Troubleshooting Guide](TROUBLESHOOTING.md) for common problems and solutions.
 
 ## AI Model Setup
 
